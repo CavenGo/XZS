@@ -1,30 +1,30 @@
 package main
 
 import (
-	"fmt"
-	_"github.com/gin-gonic/gin"
 	"context"
+	"fmt"
+	_ "github.com/gin-gonic/gin"
 	"github.com/json-iterator/go/extra"
 	"go.uber.org/zap"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
-	_"strconv"
+	_ "strconv"
 	"time"
-	"go_code/xzs/config"
-	"go_code/xzs/global"
-	"go_code/xzs/model"
-	"go_code/xzs/routers"
+	"xzs/config"
+	"xzs/global"
+	"xzs/model"
+	"xzs/routers"
 )
 
-func init(){
+func init() {
 	// jsoniter开启php兼容模式
 	// 注意构建时还需要添加构建参数-tags=jsoniter
 	extra.RegisterFuzzyDecoders()
 }
 
-func main(){
+func main() {
 
 	// 读取配置文件
 	config.InitSetting()
@@ -37,7 +37,7 @@ func main(){
 	global.Db, err = model.InitMysql()
 	if err != nil {
 		log.Fatalln("初始化数据库失败，", err)
-	}else{
+	} else {
 		fmt.Println("初始化数据库成功")
 	}
 
@@ -58,12 +58,12 @@ func runServe() {
 	// pprof.Register(r)
 	srv := &http.Server{
 		//Addr:    ":" + strconv.FormatInt(config.GlobalConf.Server.Port, 10),
-		Addr: ":8000",
+		Addr:    ":8000",
 		Handler: r,
 	}
 	go func() {
 		// 服务连接
-		err := srv.ListenAndServe(); 
+		err := srv.ListenAndServe()
 		if err != nil && err != http.ErrServerClosed {
 			log.Fatalf("listen: %s\n", err)
 		}
@@ -81,6 +81,5 @@ func runServe() {
 		zap.L().Fatal("Server Shutdown:", zap.Error(err))
 	}
 	zap.L().Info("Server exiting")
-
 
 }

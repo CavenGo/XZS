@@ -59,7 +59,7 @@ var GlobalConf = new(Conf)
 
 func InitSetting() {
 	viper.SetConfigType("yml")
-	viper.SetConfigFile("conf.yml")
+	viper.SetConfigFile("./conf/conf.yml")
 	err := viper.ReadInConfig()
 	if err != nil {
 		log.Fatalln("读取配置文件失败，", err)

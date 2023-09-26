@@ -8,14 +8,14 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"
-	"go_code/xzs/common"
-	"go_code/xzs/config"
-	"go_code/xzs/controller"
-	"go_code/xzs/controller/admin"
-	"go_code/xzs/middleware"
+	"xzs/common"
+	"xzs/config"
+	"xzs/controller"
+	"xzs/controller/admin"
+	"xzs/middleware"
 )
 
-//web框架
+// web框架
 func SetupRouters() *gin.Engine {
 
 	// 如果是dev环境开启debug模式
