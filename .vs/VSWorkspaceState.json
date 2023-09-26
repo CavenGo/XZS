@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "\\common",
+    "\\controller",
+    "\\controller\\admin",
+    "\\pkg\\datautil",
+    "\\pkg\\dateutil",
+    "\\static",
+    "\\static\\admin\\admin\\components\\ueditor\\dialogs\\preview",
+    "\\static\\admin\\admin\\components\\ueditor\\dialogs\\table",
+    "\\static\\student\\static\\fonts",
+    "\\static\\student\\static\\img"
+  ],
+  "PreviewInSolutionExplorer": false
+}
